@@ -59,10 +59,10 @@ public class Service extends android.app.Service {
 			}
 			NotificationChannel c = new NotificationChannel(
 				notificationChannelID,
-				"Home Bounder",
+				"Homeward Bound",
 				NotificationManager.IMPORTANCE_LOW
 			);
-			c.setDescription("Go home already");
+			c.setDescription("Notification for stopping the Homeward Bound service");
 			getSystemService(NotificationManager.class)
 				.createNotificationChannel(c);
 	}
