@@ -39,10 +39,10 @@ public class Service extends android.app.Service {
 			new Notification.Builder(getApplicationContext())
 				.setChannelId(notificationChannelID)
 				.setOngoing(true)
-				.setContentTitle("Homeward Bound")
+				.setContentTitle("Click to stop Homeward Bound")
 				.setStyle(new Notification.BigTextStyle().bigText(
 					"Unlocking this device will always start at the home screen\n" +
-					"(instead of the most recent app). Click this notification to exit."
+					"(instead of the most recent app). Touch this notification to stop."
 				))
 				.setContentIntent(
 					PendingIntent.getActivity(this, 0, createIntentToStop(), 0)
