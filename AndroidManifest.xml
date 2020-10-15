@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="homeward.bound"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+<application
+android:label="Homeward Bound"
+android:icon="@android:drawable/btn_star"
+>
+
+<activity android:name=".Main">
+
+<intent-filter>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+
+<action android:name="android.intent.action.SCREEN_ON" />
+<action android:name="android.intent.action.SCREEN_OFF" />
+<action android:name="android.intent.action.USER_PRESENT" />
+
+
+</intent-filter>
+
+</activity>
+
+<service
+android:name=".Service"
+android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+>
+<intent-filter>
+<action android:name="android.accessibilityservice.AccessibilityService" />
+</intent-filter>
+</service>
+
+</application>
+
+</manifest>
