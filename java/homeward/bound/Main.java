@@ -9,13 +9,17 @@ public class Main extends Activity {
 
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
+		toggleService();
+		finish();
+	}
+
+	void toggleService() {
 		Intent i = new Intent(this, Service.class);
 		if (shouldStopService()) {
 			stopService(i);
 		} else {
 			startService(i);
 		}
-		finish();
 	}
 
 	boolean shouldStopService() {
