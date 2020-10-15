@@ -9,7 +9,11 @@ public class Main extends Activity {
 
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
-		toggleService();
+		if (isAccessibilityEnabled()) {
+			toggleService();
+		} else {
+			openAccessibilitySettings();
+		}
 		finish();
 	}
 
