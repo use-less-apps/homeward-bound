@@ -34,4 +34,8 @@ public class Main extends Activity {
 		);
 		return s != null && s.contains(getPackageName() +  "/" + Service.class.getName());
 	}
+
+	void openAccessibilitySettings() {
+		startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
+	}
 }
