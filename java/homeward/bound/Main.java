@@ -43,7 +43,7 @@ public class Main extends Activity {
 
 	void showDialog() {
 		new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
-			.setIcon(android.R.drawable.btn_star)
+			.setIcon(R.drawable.house)
 			.setCancelable(false)
 			.setTitle("Enable this app in\n" + "Accessibility Settings")
 			.setMessage(

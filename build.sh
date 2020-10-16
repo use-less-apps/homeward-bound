@@ -25,6 +25,7 @@ _aapt=$buildTools/aapt
 _dx=$buildTools/dx
 
 manifestFilepath=$PWD/AndroidManifest.xml
+resourcesFilepath=$PWD/res
 javaSourcesFilepath=$PWD/java
 
 main() {
@@ -57,7 +58,7 @@ generateJavaFileForAndroidResources() {
 	#	-S  directory in which to find resources.  Multiple directories will be scanned
 	#       and the first match found (left to right) will take precedence.
 	#   -I  add an existing package to base include set
-	$_aapt package -f -m -J "$outputDirForGeneratedSourceFiles" -M "$manifestFilepath" -I "$androidLib"
+	$_aapt package -f -m -J "$outputDirForGeneratedSourceFiles" -M "$manifestFilepath" -S "$resourcesFilepath" -I "$androidLib"
 }
 
 compileJavaSourceFilesToJavaVirtualMachineBytecode() {
@@ -76,7 +77,7 @@ translateJavaVirtualMachineMBytecodeToAndroidRuntimeBytecode() {
 }
 
 createUnalignedAndroidApplicationPackage() {
-	$_aapt package -f -M "$manifestFilepath" -I "$androidLib" -F "$filepathOfUnalignedAPK"
+	$_aapt package -f -M "$manifestFilepath" -S "$resourcesFilepath" -I "$androidLib" -F "$filepathOfUnalignedAPK"
 }
 
 addAndroidRuntimeBytecodeToAndroidApplicationPackage() {
