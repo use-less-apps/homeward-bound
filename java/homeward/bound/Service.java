@@ -1,9 +1,5 @@
 package homeward.bound;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -28,43 +24,7 @@ public class Service extends android.app.Service {
 	}
 
 	public int onStartCommand(Intent i, int flags, int startId) {
-		startFrontend();
 		return super.onStartCommand(i, flags, startId);
-	}
-
-	void startFrontend() {
-		createNotificationChannel();
-		startForeground(
-			notificationID,
-			new Notification.Builder(getApplicationContext())
-				.setChannelId(notificationChannelID)
-				.setOngoing(true)
-				.setContentTitle("Click to stop Homeward Bound")
-				.setStyle(new Notification.BigTextStyle().bigText(
-					"Unlocking this device will always start at the home screen\n" +
-					"(instead of the most recent app). Touch this notification to stop."
-				))
-				.setContentIntent(
-					PendingIntent.getActivity(this, 0, createIntentToStop(), 0)
-				)
-				.setSmallIcon(android.R.drawable.btn_star)
-				.build()
-		);
-	}
-
-	private void createNotificationChannel() {
-			boolean hasNotificationChannelClass = android.os.Build.VERSION.SDK_INT >= 26;
-			if (!hasNotificationChannelClass) {
-				return;
-			}
-			NotificationChannel c = new NotificationChannel(
-				notificationChannelID,
-				"Homeward Bound",
-				NotificationManager.IMPORTANCE_LOW
-			);
-			c.setDescription("Notification for stopping the Homeward Bound service");
-			getSystemService(NotificationManager.class)
-				.createNotificationChannel(c);
 	}
 
 	Intent createIntentToStop() {
