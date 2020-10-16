@@ -47,8 +47,8 @@ public class Main extends Activity {
 			.setCancelable(false)
 			.setTitle("Enable this app in\n" + "Accessibility Settings")
 			.setMessage(
-				"To use this app, enable Homeward Bound in Accessibilty Settings " +
-				"and then re-open the Homeward Bound app."
+				"Select Homeward Bound in Accessibilty Settings, " +
+				"then enable 'Use service' and 'Allow'."
 			)
 			.setPositiveButton(
 				"Open Settings",
