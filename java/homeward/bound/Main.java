@@ -45,7 +45,7 @@ public class Main extends Activity {
 		new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
 			.setIcon(R.drawable.house)
 			.setCancelable(false)
-			.setTitle("Enable this app in\n" + "Accessibility Settings")
+			.setTitle("Enable this app in\n" + "'Accessibility Settings'")
 			.setMessage(
 				"Select Homeward Bound in Accessibilty Settings, " +
 				"then enable 'Use service' and 'Allow'."
