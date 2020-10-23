@@ -50,6 +50,7 @@ public class Service extends android.app.Service {
 		public void onReceive(Context c, Intent i) {
 			switch (i.getAction()) {
 			case Intent.ACTION_SCREEN_OFF:
+				ri = getDefaultAppLauncher();
 			case Intent.ACTION_SCREEN_ON:
 			case Intent.ACTION_USER_PRESENT:
 				goHome();
