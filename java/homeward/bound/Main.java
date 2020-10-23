@@ -12,25 +12,20 @@ public class Main extends Activity {
 	public void onCreate(Bundle b) {
 		super.onCreate(b);
 		if (isAccessibilityEnabled()) {
-			toggleService();
+			showDialog(
+				"Homeward Bound is already running.",
+				"Unlocking the phone should always start at the home screen." + "\n\n" +
+				"To revert, open Homeward Bound in Accessibility Settings " +
+				"(look for the above icon) " +
+				"and toggle the 'Use service' switch."
+			);
 		} else {
-			showDialog();
+			showDialog(
+				"Enable this app in\n" + "'Accessibility Settings'",
+				"Select Homeward Bound (look for the above icon) in Accessibilty Settings, " +
+				"then enable the 'Use service' switch."
+			);
 		}
-	}
-
-	void toggleService() {
-		Intent i = new Intent(this, Service.class);
-		if (shouldStopService()) {
-			stopService(i);
-		} else {
-			startService(i);
-		}
-		finish();
-	}
-
-	boolean shouldStopService() {
-		Bundle b = getIntent().getExtras();
-		return b != null && b.getBoolean(Service.keyToStop, false);
 	}
 
 	boolean isAccessibilityEnabled() {
@@ -41,17 +36,14 @@ public class Main extends Activity {
 		return s != null && s.contains(getPackageName() +  "/" + Service.class.getName());
 	}
 
-	void showDialog() {
+	void showDialog(String title, String message) {
 		new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
 			.setIcon(R.drawable.house_anchor)
 			.setCancelable(false)
-			.setTitle("Enable this app in\n" + "'Accessibility Settings'")
-			.setMessage(
-				"Select Homeward Bound in Accessibilty Settings, " +
-				"then enable 'Use service' and 'Allow'."
-			)
+			.setTitle(title)
+			.setMessage(message)
 			.setPositiveButton(
-				"Open Settings",
+				"Open Accessibility Settings",
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface d, int ID) {
 						openAccessibilitySettings();
