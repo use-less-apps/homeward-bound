@@ -68,7 +68,7 @@ public class Service extends android.app.Service {
 		Intent i = Intent.makeMainActivity(
 			new ComponentName(ri.activityInfo.packageName, ri.activityInfo.name)
 		);
-		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.addFlags(.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
   		Service.this.startActivity(i); 
 	}
 }
