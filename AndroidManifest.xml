@@ -10,7 +10,7 @@ android:targetSdkVersion="29"
 
 <application
 android:label="Homeward Bound"
-android:icon="@drawable/house"
+android:icon="@drawable/house_anchor"
 >
 
 <activity android:name=".Main">
