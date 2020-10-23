@@ -11,26 +11,12 @@ import android.os.IBinder;
 
 public class Service extends android.app.Service {
 
-	static final int notificationID = 1;
-	static final String notificationChannelID = "homeward-bound";
-
-	public final static String keyToStop =
-		"turn off the homeward-bound service";
-
-	String packageNameOfDefaultAppLauncher;
-
 	public IBinder onBind(Intent i) {
 		return null;
 	}
 
 	public int onStartCommand(Intent i, int flags, int startId) {
 		return super.onStartCommand(i, flags, startId);
-	}
-
-	Intent createIntentToStop() {
-		Intent i = new Intent(this, Main.class);
-		i.putExtra(keyToStop, true);
-		return i;
 	}
 
 	final EventReceiver r = new EventReceiver();
