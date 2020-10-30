@@ -64,7 +64,11 @@ public class Main extends Activity {
 
 	void openAccessibilitySettings() {
 		Intent i = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+		i.setFlags(
+			Intent.FLAG_ACTIVITY_NEW_TASK |
+			Intent.FLAG_ACTIVITY_CLEAR_TOP |
+			Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
+		);
 		startActivity(i);
 		finish();
 	}
